@@ -40,8 +40,8 @@ The main motivation for this product comes from Mario Maker, a similar game that
 #Mitigation Strategy
 
 1. Mobile development has exploded recently, and as such there is a lot of documentation and other resources online
-2. Schecule time each week to work on this project, hopefully as a group.
-3. Consistent group meetings will help us to get to know eachother, and our streangths and weaknesses as a group.
+2. Schedule time each week to work on this project, hopefully as a group.
+3. Consistent group meetings will help us to get to know each other, and our strengths and weaknesses as a group.
 
 #Version Control
 
@@ -55,4 +55,4 @@ We will be using AGILE, with 1-2 week sprints, and weekly group scrums.  These w
 
 #Collaboration Tool
 
-We have yet to decide on a tool all of us can use, but we are leaning towards using Slack. 
+We will use Slack to communicate throughout the duration of the project.  It will be used to update other members of the group on progress outside of our weekly scrums. 
