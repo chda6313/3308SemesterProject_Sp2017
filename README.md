@@ -2,6 +2,8 @@
 
 #Team Name: 
 
+MobileMaker
+
 #Members:
 
 Charles Davies
@@ -53,4 +55,4 @@ We will be using AGILE, with 1-2 week sprints, and weekly group scrums.  These w
 
 #Collaboration Tool
 
-We have yet to decide on a tool all of us can use, but we will probably use Slack or HipChat 
+We have yet to decide on a tool all of us can use, but we are leaning towards using Slack. 
