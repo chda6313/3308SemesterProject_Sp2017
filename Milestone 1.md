@@ -1,8 +1,13 @@
 #3308SemesterProject_Sp2017
 
-#Team Name: 
+#Team Name:
+
+Rebel Scrum
+
+#Project Name: 
 
 MobileMaker
+
 
 #Members:
 
