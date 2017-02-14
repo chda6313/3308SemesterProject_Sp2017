@@ -5,9 +5,13 @@
 #Members:
 
 Charles Davies
+
 Hamilton Nelson
+
 James Lagrotteria
+
 Joshua Green
+
 Lake Braun
 
 
