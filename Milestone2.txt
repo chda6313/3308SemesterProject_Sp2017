@@ -1,0 +1,32 @@
+Rebel-Scrum
+
+Milestone 2
+
+
+
+Project Tracking Tool
+
+-pick a tool
+	Trello or Zoho
+
+-create backlog
+-create a project plan
+	# of sprints
+	tasks per sprint
+-----------------------
+
+
+
+
+Plan Cycle
+
+- create 3week sprint
+- scrum tasks
+	- 0,1,3,5,8,11...
+	- take ownership of tasks
+
+
+-sprint retrospective
+	do on tuesday-4pm?
+-----------------------
+
