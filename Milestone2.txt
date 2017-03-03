@@ -10,6 +10,23 @@ Project Tracking Tool
 	Trello or Zoho
 
 -create backlog
+	
+	****EXAMPLES****
+	as a A I want B in order to C
+	A		B			C
+	user 		mobile app		access further features
+	user		functional game		entertain myself
+	user		simple UI		learn the game quickly
+	user 		map editing tool	create custom levels
+	user		database access		share my creations with others
+	
+	developer	success checker		keep people from submitting impossible levels
+	developer	get on app store	provide joy to the masses
+	developer	cloud hosting		not have a bunch of people accessing my pc all the time
+
+
+
+
 -create a project plan
 	# of sprints
 	tasks per sprint
