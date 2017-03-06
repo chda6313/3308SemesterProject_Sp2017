@@ -32,12 +32,12 @@ int fallspeed = 50;
 //runs once at the very start of the program
 void settings() 
 {
-  size(501,601);
+  size(800,800);
 }
 //also runs once at the very start of the program
 void setup()
 {
-  size(501,601);
+  size(800,800);
   background(10);
   frameRate(60);
   
@@ -51,13 +51,45 @@ void draw()
 {
   background(bg); //draw the background, commenting out this line will draw on top of the previous frame
   m1.draw(); //draw the map
-  p1.draw();  //draw the player
+  p1.draw(m1);  //draw the player
 }
 
 class gameMap{
-  //to implement
+  wallBlock[] wallBlocks = {new wallBlock(500,600,100,50), new wallBlock(200,550,100,50)};
+  gameMap(){
+    
+  }
+  
   void draw(){
-    //implement me
+    stroke(200);
+    fill(100);
+    for (int i=0; i<wallBlocks.length; i++){
+      int[] d = wallBlocks[i].getLocation();
+      int[] bS = wallBlocks[i].getSize();
+      
+      rect(d[0], d[1], bS[0], bS[1]);//x,y,xSize,ySize
+    }
+    
+  }
+}
+
+class wallBlock{
+  int[] location = {0,0};
+  int[] blockSize = {10,10};
+  wallBlock(int x, int y, int xSize, int ySize){
+    location[0] = x;
+    location[1] = y;
+    
+    blockSize[0] = xSize;
+    blockSize[1] = ySize;
+  }
+  
+  int[] getLocation(){
+    
+    return location;
+  }
+  int[] getSize(){
+    return blockSize;
   }
 }
 
@@ -71,10 +103,10 @@ class player{
   
   
   //draws the player
-  void draw() {
+  void draw(gameMap m1) {
     
     //first update the location of the player.
-    updateLocation();
+    updateLocation(m1);
     
     //currently just draws a box
     fill(playerColor);//sets fill color (interior of shape)
@@ -90,10 +122,12 @@ class player{
   
   
   
-  void updateLocation()
+  void updateLocation(gameMap m1)
   {
     //update speeds --this checks for keyboard inputs
     speeds = updateSpeed(speeds);
+    
+    int lastY = location[1];
     
     //update locations with the new speeds
     location[0] += speeds[0];
@@ -105,6 +139,18 @@ class player{
     
     if (location[1]<0){location[1] = 0;}
     if (location[1]>height){location[1] = height;}
+    
+    //check for walls
+    for (int i=0; i<m1.wallBlocks.length; i++){
+      int[] d = m1.wallBlocks[i].getLocation();
+      int[] bS = m1.wallBlocks[i].getSize();
+      
+      if ((location[1]< d[1]+ bS[1] && location[1] > d[1]) &&     lastY <= d[1]       && (location[0] > d[0] && location[0] < d[0] + bS[0])){
+        location[1] = d[1];
+        speeds[1] = 0;
+      }
+      
+    }
     
   }
   
