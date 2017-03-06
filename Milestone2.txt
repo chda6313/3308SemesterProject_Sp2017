@@ -2,42 +2,27 @@ Rebel-Scrum
 
 Milestone 2
 
+We will be using trello as our project tracking tool. We have a board of long term goals labled critical features. We have a backlog of user stories that are smaller tasks than the critical features. these tasks are color coded with the critical feature they are a part of. These tasks will be assigned due dates to define which sprint they will be a part of. We currently have due dates assigned forsome tasks up until Mar21.
 
 
-Project Tracking Tool
+**include screenshot of trello page**
 
--pick a tool
-	Trello or Zoho
+Our trello page can be found here:
+https://trello.com/b/Ym1fhDAI/big-picture-sthttps://trello.com/b/Ym1fhDAI/big-picture-storiesories
 
--create backlog
-	
-	****EXAMPLES****
-	as a A I want B in order to C
-	A		B			C
-	user 		mobile app		access further features
-	user		functional game		entertain myself
-	user		simple UI		learn the game quickly
-	user 		map editing tool	create custom levels
-	user		database access		share my creations with others
-	
-	developer	success checker		keep people from submitting impossible levels
-	developer	get on app store	provide joy to the masses
-	developer	cloud hosting		not have a bunch of people accessing my pc all the time
+
+We will be conducting three two-week sprints, assigning tasks from our backlog as we go. We will have weekly standup meetings instead of daily, because we are having trouble scheduling meetings when we can all be there.
 
 
 
 
--create a project plan
-	# of sprints
-	tasks per sprint
------------------------
 
 
 
 
 Plan Cycle
 
-- create 3week sprint
+- create 3week sprint* (were doing 2 week)
 - scrum tasks
 	- 0,1,3,5,8,11...
 	- take ownership of tasks
