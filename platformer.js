@@ -28,6 +28,7 @@ int grav = -2;
 int jumpspeed = 10;
 int runspeed = 10;
 int fallspeed = 50;
+int coinSize = 10;
 
 //runs once at the very start of the program
 void settings() 
@@ -37,7 +38,9 @@ void settings()
 //also runs once at the very start of the program
 void setup()
 {
+
   size(800,800);
+
   background(10);
   frameRate(60);
   
@@ -56,11 +59,16 @@ void draw()
 
 class gameMap{
   wallBlock[] wallBlocks = {new wallBlock(500,600,100,50), new wallBlock(200,550,100,50)};
+  coin[] coins = {new coin(100,100), new coin(200,200)};
+  wallBlock goal = new wallBlock(700, 400,100,50);//end goal location
+  
   gameMap(){
     
   }
   
   void draw(){
+    
+    //wall colors
     stroke(200);
     fill(100);
     for (int i=0; i<wallBlocks.length; i++){
@@ -70,8 +78,39 @@ class gameMap{
       rect(d[0], d[1], bS[0], bS[1]);//x,y,xSize,ySize
     }
     
+    
+    
+    //coin colors
+    stroke(200);
+    fill(color(100,100,0));
+    
+    boolean allCollected = true; // this tracks if all coins are collected for the goal
+    for (int i=0; i<coins.length; i++){
+      if (!coins[i].collected){ // only draw them if they are not collected
+        ellipse(coins[i].x , coins[i].y, coinSize, 1.5*coinSize); //x,y, xradius, yradius
+        allCollected = false;
+        }
+      }
+    
+    
+    //goal color
+    stroke(200);
+    if (allCollected) {fill(color(0,255,0));}
+    else {fill(color(255,0,0));}
+    //draw the goal
+    rect(goal.location[0], goal.location[1], goal.blockSize[0], goal.blockSize[1]);
   }
 }
+class coin{//makes a coin.
+  int x = 0;
+  int y = 0;
+  boolean collected = false;
+  coin(int xpos, int ypos){
+    x = xpos;
+    y = ypos;
+  }
+}
+
 
 class wallBlock{
   int[] location = {0,0};
@@ -94,7 +133,6 @@ class wallBlock{
 }
 
 
-//beef
 class player{
   //attributes
   int[] location = {0,0};//x,y
@@ -150,6 +188,15 @@ class player{
         speeds[1] = 0;
       }
       
+    }
+    //check for coins
+    for (int i=0; i<m1.coins.length; i++){
+      if ((abs(location[0] - m1.coins[i].x) <= coinSize) && (abs(m1.coins[i].y - location[1])) <= 1.5*coinSize){
+      m1.coins[i].collected = true;
+      }
+      else {
+      playerColor = color(255,255,255);
+      }
     }
     
   }
