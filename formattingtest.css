@@ -1,0 +1,14 @@
+@charset 'utf-8';
+
+
+body { font: 16px/20px Arial, 'san-serif'; min-width: 550px}
+
+/*the editing section*/
+menu { position: absolute; right: 0; top: 0; margin: 0; width: 400px; height: 35%; border-left: 5px solid #258; border-right: 5px solid #258; border-bottom: 5px solid #258; border-top: 5px solid 258}
+menu ul { list-style-type: none; text-align: center }
+
+input[type=text] { width: 50px }
+
+/*Textbox*/
+output { display: block; padding-right: 250px; text-align: center}
+textarea { width: 500px; height: 150px; margin: 0; font-family: monospace }
