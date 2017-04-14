@@ -4,6 +4,7 @@ $Id = mysql_insert_id()+1;
 $Name = $_REQUEST['User_Name'];
 $Publish = date("d.m.Y");
 $Rating = $_REQUEST['Rating'];
+$Comment = $_REQUEST['Comment'];
 $High_Score = NULL;
 
 $Rectangle = NULL;
