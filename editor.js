@@ -16,7 +16,7 @@
 
 boolean[] keys = {false, false, false};//a,d,spacebar
 
-
+gameMap edit =new gameMap();
 
 void settings() 
 {
@@ -42,8 +42,11 @@ void draw()
   
   //this draws a square at mouse location, with a color based on if the mouse is clicked.
   if (mousePressed == true) {
-    stroke(255); // outline is white
-    fill(0);  //fill color is black
+	  
+	  
+   stroke(255); // outline is white
+    fill(0); 
+    coin coin1=new coin(mouseX,mouseY); //fill color is black
   } else {
     stroke(0); //outline black
     fill(255);//fill white
@@ -51,6 +54,58 @@ void draw()
   rect(mouseX, mouseY, 50, 50); // draw at mouse location, with width and height of 50
 }
 
+/*class gameMap{
+if (mousePressed == true) 
+{coin coin1 = new coin(mouseX, mouseY);}
+  
+  gameMap(){
+    
+  }
+  
+  void draw(){
+    
+    //wall colors
+    stroke(200);
+    fill(100);
+    for (int i=0; i<wallBlocks.length; i++){
+      int[] d = wallBlocks[i].getLocation();
+      int[] bS = wallBlocks[i].getSize();
+      
+      rect(d[0], d[1], bS[0], bS[1]);//x,y,xSize,ySize
+    }
+    
+    
+    
+    //coin colors
+    stroke(200);
+    fill(color(100,100,0));
+    
+    boolean allCollected = true; // this tracks if all coins are collected for the goal
+    for (int i=0; i<coins.length; i++){
+      if (!coins[i].collected){ // only draw them if they are not collected
+        ellipse(coins[i].x , coins[i].y, coinSize, 1.5*coinSize); //x,y, xradius, yradius
+        allCollected = false;
+        }
+      }
+    
+    
+    //goal color
+    stroke(200);
+    if (allCollected) {fill(color(0,255,0));}
+    else {fill(color(255,0,0));}
+    //draw the goal
+    rect(goal.location[0], goal.location[1], goal.blockSize[0], goal.blockSize[1]);
+  }
+}*/
+class coin{//makes a coin.
+  int x = 0;
+  int y = 0;
+  boolean collected = false;
+  coin(int xpos, int ypos){
+    x = xpos;
+    y = ypos;
+  }
+}
 
 
 //keyPressed and keyReleased track keyboard input
