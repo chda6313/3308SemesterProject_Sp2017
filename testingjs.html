@@ -11,9 +11,18 @@
   <script src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
 	<script src="platformer.js"></script>
   <script>
-    QUnit.test( "a basic test example", function( assert ) {
-      x=gamemap
-      assert.equal(math3, 5);
+     QUnit.test( "Coins not collected", function( assert ) {
+      x=platformer.gameMap.draw();
+      assert.equal(x.allcollected, false);
+    });
+    
+    QUnit.test( "Number of coins", function( assert ) {
+      x=platformer.gameMap.coin coins2={new coin(100,100), new coin(200,200)};
+      assert.equal(x.coins2.length(), 2);
+      x=platformer.gameMap.coin coins={new coin(100,100)};
+      assert.equal(x.coins.length(), 1);
+      x=platformer.gameMap.coin coins3={new coin(100,100), new coin(200,200), new coin(300,300)};
+      assert.equal(x.coins3.length(), 3);
     });
   </script>
 </head>

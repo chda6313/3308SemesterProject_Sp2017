@@ -12,12 +12,31 @@
 //  V
 //  y-axis
 
-
-
-
-
-
 color bg = color(0,0,0); // rgb color to use as background
+
+function StartMainMenu()
+{
+	GameLoopManager.stop();
+	MainGame = null;
+	// Async load audio and start menu when loaded
+	MultiStepLoader( [
+		[ "audio", function(cb, i) {
+			AudioManager.load({
+				'blip'   : 'sound/blip',
+				'select' : 'sound/select'
+			}, function() {
+				cb(i); } ) } ],
+	], function() {
+		// All done, go!
+		InputManager.reset();
+		MainMenu = new Menu("Mario Maker",
+				[ "Login", "Create Account", "Help", "Credits" ],70, 50, 400,
+				function(numItem) { if (numItem == 0) StartGam(); },
+				null);
+		GameLoopManager.run(function(elapsed) { MainMenu.Tick(elapsed); });
+	} );
+}
+
 boolean[] keys = {false, false, false};//a,d,spacebar
 player p1 = new player(); // init new player
 gameMap m1 = new gameMap(); //init new map
