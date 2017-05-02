@@ -1,6 +1,6 @@
 <html>
 <head>
-<title> My Store Web Application </title>
+<title> Level Selection </title>
 <script
 src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.mi
 n.js">
@@ -10,9 +10,9 @@ $(document).ready(function(){
  $('.button').click(function(){
  var clickBtnName = $(this).attr('name');
  var ajaxurl = 'http://localhost/SQLRetreiveHandler.php';
- var data = {'id': clickBtnName};
+ var data = {'lvl_id': clickBtnName};
  $.post(ajaxurl, data, function(response) {
- window.location.href="http://localhost/store.php";
+ window.location.href="http://localhost/editor_page.html";
 });
 });
 });
@@ -31,7 +31,7 @@ if(mysqli_connect_errno())
 }
 else
 {
- echo "<h4>Successfully connected to MySQL: </h4>";
+ echo "<h4>Successfully connected to MySQL (Changed): </h4>";
 }
 ?>
 <table class ="striped">
@@ -42,8 +42,7 @@ else
 		<td><strong>Publish Date</strong></td>
 	</tr>
 <?php
-echo 
-$query = "Select * FROM Levels WHERE (rating <= 4) ORDER BY rating;";
+$query = "Select * FROM Levels WHERE (rating <= 4)	 ORDER BY rating;";
 $resultset = mysqli_query($connection, $query);
 while ($row = mysqli_fetch_array($resultset, MYSQLI_NUM)) {
 	echo "<tr>";
@@ -51,7 +50,7 @@ while ($row = mysqli_fetch_array($resultset, MYSQLI_NUM)) {
 	echo "<td>".$row[5]."</td>";
 	echo "<td>".$row[3]."</td>";
 	echo "<td>".$row[2]."</td>";
-	echo "<td><input type=\"submit\" class=\"button\" name=\"".row[0]."\" value=\"Select\"/></td>";
+	echo "<td><input type=\"submit\" class=\"button\" name=\"".$row[0]."\" value=\"Select\"/></td>";
 	echo "</tr>";
 }
 ?>
