@@ -31,7 +31,7 @@ function StartMainMenu()
 		InputManager.reset();
 		MainMenu = new Menu("Mario Maker",
 				[ "Login", "Create Account", "Help", "Credits" ],70, 50, 400,
-				function(numItem) { if (numItem == 0) StartGam(); },
+				function(numItem) { if (numItem == 0) StartGame(); },
 				null);
 		GameLoopManager.run(function(elapsed) { MainMenu.Tick(elapsed); });
 	} );
