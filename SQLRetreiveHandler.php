@@ -1,5 +1,6 @@
 <html>
 <head>
+	<script type="text/javascript" src="processing.js"></script>
 	<script type="text/javascript">
 		var platforms = <?php echo json_encode($platforms_array);?>;
 		var coins = <?php echo json_encode($coins_array);?>;
@@ -8,7 +9,7 @@
 </head>
 <?php
 error_log("PHP file entered",0);
-$connection = @mysqli_connect ('127.0.0.1','root', '#Nellie1995','Maker_Game');
+$connection = @mysqli_connect ('127.0.0.1','root', 'eraser34','Maker_Game');
 if(mysqli_connect_errno())
 {
 	error_log("Database couldn't Connect (Changed)",0);
@@ -54,6 +55,15 @@ error_log('GOAL DATA: '.$goal_array[0][1],0);
 error_log('GOAL DATA: '.$goal_array[0][0],0);
 
 //include 'Game_Selection.php';
+//include playpage.html;
 ?>
+
+<body>
+
+<canvas id="mysketch" data-processing-sources="platformer.js"></canvas>
+			
+
+</body>
+
 </html>
 

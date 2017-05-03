@@ -9,10 +9,17 @@ n.js">
 $(document).ready(function(){
  $('.button').click(function(){
  var clickBtnName = $(this).attr('name');
- var ajaxurl = 'http://localhost/SQLRetreiveHandler.php';
+ var ajaxurl = 'http://localhost/Project/SQLRetreiveHandler.php';
  var data = {'lvl_id': clickBtnName};
+ 
  $.post(ajaxurl, data, function(response) {
- window.location.href="http://localhost/editor_page.html";
+
+
+
+
+
+ 
+ //window.location.href="http://localhost/Project/playpage.html";
 });
 });
 });
@@ -24,7 +31,7 @@ $(document).ready(function(){
 
 <?php
 // Obtain a connection object by connecting to the db
-$connection = @mysqli_connect ('127.0.0.1','root', '#Nellie1995','Maker_Game'); // please fill these parameters with the actual data
+$connection = @mysqli_connect ('127.0.0.1','root', 'eraser34','Maker_Game'); // please fill these parameters with the actual data
 if(mysqli_connect_errno())
 {
  echo "<h4>Failed to connect to MySQL: </h4>".mysqli_connect_error();
@@ -50,7 +57,10 @@ while ($row = mysqli_fetch_array($resultset, MYSQLI_NUM)) {
 	echo "<td>".$row[5]."</td>";
 	echo "<td>".$row[3]."</td>";
 	echo "<td>".$row[2]."</td>";
-	echo "<td><input type=\"submit\" class=\"button\" name=\"".$row[0]."\" value=\"Select\"/></td>";
+//	echo "<td><input type=\"submit\" class=\"button\" name=\"".$row[0]."\" value=\"Select\"/></td>";
+	echo "<td><form action = 'http://localhost/Project/SQLRetreiveHandler.php'>
+	<input type='hidden' name = 'lvl_id' value=\"".$row[0]."\" >
+	<input type='submit' class='button'></form></td>";
 	echo "</tr>";
 }
 ?>

@@ -48,6 +48,9 @@ int jumpspeed = 10;
 int runspeed = 10;
 int fallspeed = 50;
 int coinSize = 10;
+//var platforms = <?php echo json_encode($platforms_array);?>;
+  
+
 
 //runs once at the very start of the program
 void settings() 
@@ -57,7 +60,12 @@ void settings()
 //also runs once at the very start of the program
 void setup()
 {
-
+  //var coins = <?php echo json_encode($coins_array);?>;
+  //var platforms = <?php echo json_encode($platforms_array);?>;
+  //var goal = <?php echo json_encode($goal_array);?>;
+  
+  
+  m1 = new gameMap(platforms, coins, goal)
   size(800,800);
 
   background(10);
@@ -77,12 +85,16 @@ void draw()
 }
 
 class gameMap{
+	
   wallBlock[] wallBlocks = {new wallBlock(500,600,100,50), new wallBlock(200,550,100,50)};
   coin[] coins = {new coin(100,100), new coin(200,200)};
   wallBlock goal = new wallBlock(700, 400,100,50);//end goal location
   
-  gameMap(){
-    
+  gameMap(pIn, cIn, gIn){
+    //for (int i=0; i<=cIn.length; i++){
+	  //workingCoin = cIn[i];
+	  //coins.push(new coin(workingCoin[0], workingCoin[1]));
+	//}
   }
   
   void draw(){
