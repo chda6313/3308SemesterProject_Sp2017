@@ -60,8 +60,25 @@ error_log('GOAL DATA: '.$goal_array[0][0],0);
 
 <body>
 
-<canvas id="mysketch" data-processing-sources="platformer.js"></canvas>
+
+
+     <div id="msg">HelloWorld</div>
+<canvas id="mysketch" data-processing-sources="GamePlay.js"></canvas>
+
+<script type="application/javascript">
+		 var coins = <?php echo json_encode($coins_array);?>;
+		 var platforms = <?php echo json_encode($platforms_array);?>;
+         var goal = <?php echo json_encode($goal_array);?>;
+         
+         var printMessage = function (msg) {
+             document.getElementById('msg').innerHTML = "Message: " + msg;
+         };
+</script>
+
+
+
 			
+<p id="demo"></p>
 
 </body>
 

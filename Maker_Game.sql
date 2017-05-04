@@ -14,28 +14,23 @@ create table if not exists Users(id integer primary key auto_increment,first_n c
 
 
 /*example of populating a table*/
-/*insert into Levels values (default, 1, '2017-03-21', 'chda6313', 20, 'exlevel1','my first level I created',0);
-insert into Levels values (default, 2, '2017-04-11', 'hane0248', 32, 'BEST LVL','CAN\'T BE BEAT',0);
+insert into Levels values (default, 1, '2017-03-21', 'chda6313', 20, 'exlevel1','my first level I created',0);
+insert into Levels values (default, 2, '2017-04-11', 'hane0248', 32, 'BEST LVL',"CAN\'T BE BEAT",0);
 insert into Levels values (default, 4, '2016-12-21', 'chda6313', 3567, 'CHALLENGE','Super HARD',0);
 insert into Levels values (default, 3, '2001-06-12', 'hane0248', 23450, 'Hams LVL','GIT GUD',0);
-*/
+
 
 /* Test Values for levels */
 insert into Users values (default, 'Charlie', 'Davies', 'chda6313', 'password1');
 insert into Users values (default, 'Hamilton', 'Nelson', 'hane0248', 'password2');
-<<<<<<< HEAD
-=======
 
-insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (7, ST_Geomfromtext('POINT(250 250)'),80, 20);
-insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (7, ST_Geomfromtext('POINT(350 450)'),100, 20);
-insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (8, ST_Geomfromtext('POINT(150 350)'),40, 20);
+insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (1, ST_Geomfromtext('POINT(250 250)'),80, 20);
+insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (1, ST_Geomfromtext('POINT(350 450)'),100, 20);
+insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (1, ST_Geomfromtext('POINT(150 350)'),40, 20);
 
+insert into Coins (lvl_id, coin) VALUES (1, ST_Geomfromtext('POINT(250 250)'));
+insert into Coins (lvl_id, coin) VALUES (1, ST_Geomfromtext('POINT(10 350)'));
+insert into Coins (lvl_id, coin) VALUES (1, ST_Geomfromtext('POINT(10 150)'));
 
-insert into Coins (lvl_id, coin) VALUES (7, ST_Geomfromtext('POINT(250 250)'));
-insert into Coins (lvl_id, coin) VALUES (7, ST_Geomfromtext('POINT(10 350)'));
-insert into Coins (lvl_id, coin) VALUES (8, ST_Geomfromtext('POINT(10 150)'));
-
-insert into Goal (lvl_id, goal, x_size, y_size) VALUES (7, ST_Geomfromtext('POINT(450 150)'),50, 150);
-insert into Goal (lvl_id, goal, x_size, y_size) VALUES (8, ST_Geomfromtext('POINT(200 400)'),100, 50);
-
->>>>>>> 9dd8a0e8000f73df2dd6f11f9b5ecae127fcbbaa
+insert into Goal (lvl_id, goal, x_size, y_size) VALUES (1, ST_Geomfromtext('POINT(450 150)'),50, 150);
+insert into Goal (lvl_id, goal, x_size, y_size) VALUES (1, ST_Geomfromtext('POINT(200 400)'),100, 50);
