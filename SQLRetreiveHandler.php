@@ -62,8 +62,8 @@ error_log('GOAL DATA: '.$goal_array[0][0],0);
 
 
 
-     <div id="msg">HelloWorld</div>
-<canvas id="mysketch" data-processing-sources="GamePlay.js"></canvas>
+<div id="msg">HelloWorld</div>
+<canvas id="mysketch" data-processing-sources="basic.js"></canvas>
 
 <script type="application/javascript">
 		 var coins = <?php echo json_encode($coins_array);?>;
@@ -71,8 +71,12 @@ error_log('GOAL DATA: '.$goal_array[0][0],0);
          var goal = <?php echo json_encode($goal_array);?>;
          
          var printMessage = function (msg) {
-             document.getElementById('msg').innerHTML = "Message: " + msg;
+             document.getElementById('msg').innerHTML =  msg;
          };
+         
+         var gameEnd = function() {
+			 window.open("http://localhost/Project/Game_Selection.php", "_self", false);
+			 };
 </script>
 
 
