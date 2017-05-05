@@ -41,14 +41,14 @@ void draw()
  //var input[] dynamic input?
  int c=0;
  int b=0;
-
+//coin creation 
   if (mousePressed == true&&(mouseButton==left) {
 	  coin[c]=new coin(mouseX, mouseY);
 	  c=c+1;
    /*stroke(255); // outline is white
     //black fill 
     fill(0); */ // commenting out changes when pressed 
-    //coin creation when pressed
+    //block creation when pressed
    else if (mousePressed == true&&(mouseButton==right))
    {
 	   
@@ -62,7 +62,7 @@ void draw()
   
 }
 class gameMap{
-  coin[] coins = {new coin(100,100), new coin(200,200)};
+  test coin[] coins = {new coin(100,100), new coin(200,200)};
   block[] platformss = {new block(500,600,100,50), new block(200,550,100,50)};
   gameMap(coins, platforms){
     
