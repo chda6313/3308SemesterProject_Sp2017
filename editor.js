@@ -1,26 +1,20 @@
-//Charles Davies
 
-//note, pixels are counted from the top left of the screen.
-//this causes some funcy math, most notibly, moving down in the y is actually adding to pixel number
-//ex:
+//3 arrays will be created 
+//coins=coin
+//platforms=block
+//goal=final block 
+//dynamic arrays utilized 
 
-//0,0  1,0  2,0  3,0 ----> x-axis
-//0,1  1,1  2,1  3,1
-//0,2  1,2  2,2  3,2
-//  |
-//  |
-//  V
-//  y-axis
-
+//'name'[20] + 'comments'[140] field -- 
 
 
 boolean[] keys = {false, false, false};//a,d,spacebar
 
-gameMap edit =new gameMap();
+gameMap edit=new gameMap();
 
 void settings() 
 {
-  
+  size(400,400)
 }
 //also runs once at the very start of the program
 void setup()
@@ -28,76 +22,74 @@ void setup()
   background(color(20,40,50)); //color(r,g,b)
   size(800,800);
   frameRate(60);
-  
+  edit=new gameMap(coins, platforms)
 }
 
 
-
+void draw() 
+{
+	background();
+	edit.draw();
+}
 
 //this is the main function. Will loop for ever
 void draw()
 {
-  background(color(20,50,50)); //draw the background, commenting out this line will draw on top of the previous frame
-  
-  
-  //this draws a square at mouse location, with a color based on if the mouse is clicked.
-  if (mousePressed == true) {
-	  
-	  
-   stroke(255); // outline is white
-    fill(0); 
-    coin coin1=new coin(mouseX,mouseY); //fill color is black
+  background(color(20,150,50)); //draw the background, commenting out this line will draw on top of the previous frame
+  //coin[] coins= new coin;
+
+ //var input[] dynamic input?
+ int c=0;
+ int b=0;
+
+  if (mousePressed == true&&(mouseButton==left) {
+	  coin[c]=new coin(mouseX, mouseY);
+	  c=c+1;
+   /*stroke(255); // outline is white
+    //black fill 
+    fill(0); */ // commenting out changes when pressed 
+    //coin creation when pressed
+   else if (mousePressed == true&&(mouseButton==right))
+   {
+	   
+	block[b]=new block(mouseX,mouseY,100,50);
+	b=b+1;
   } else {
     stroke(0); //outline black
-    fill(255);//fill white
+    fill(255);//fill white(/
   }
-  rect(mouseX, mouseY, 50, 50); // draw at mouse location, with width and height of 50
-}
-
-/*class gameMap{
-if (mousePressed == true) 
-{coin coin1 = new coin(mouseX, mouseY);}
+  rect(mouseX, mouseY, 10, 10); // draw at mouse location, with width and height of 
   
-  gameMap(){
+}
+class gameMap{
+  coin[] coins = {new coin(100,100), new coin(200,200)};
+  block[] platformss = {new block(500,600,100,50), new block(200,550,100,50)};
+  gameMap(coins, platforms){
     
   }
   
   void draw(){
-    
-    //wall colors
-    stroke(200);
-    fill(100);
-    for (int i=0; i<wallBlocks.length; i++){
-      int[] d = wallBlocks[i].getLocation();
-      int[] bS = wallBlocks[i].getSize();
-      
-      rect(d[0], d[1], bS[0], bS[1]);//x,y,xSize,ySize
-    }
-    
-    
-    
+	  
+	  
     //coin colors
     stroke(200);
     fill(color(100,100,0));
     
-    boolean allCollected = true; // this tracks if all coins are collected for the goal
-    for (int i=0; i<coins.length; i++){
-      if (!coins[i].collected){ // only draw them if they are not collected
-        ellipse(coins[i].x , coins[i].y, coinSize, 1.5*coinSize); //x,y, xradius, yradius
-        allCollected = false;
-        }
-      }
-    
-    
-    //goal color
+      //wall colors
     stroke(200);
-    if (allCollected) {fill(color(0,255,0));}
-    else {fill(color(255,0,0));}
-    //draw the goal
-    rect(goal.location[0], goal.location[1], goal.blockSize[0], goal.blockSize[1]);
-  }
-}*/
-class coin{//makes a coin.
+    fill(100);
+    
+    
+    for (int i=0; i<platforms.length; i++){
+      int[] d = platforms[i].getLocation();
+      int[] bS = platforms[i].getSize();
+      
+      rect(d[0], d[1], bS[0], bS[1]);//x,y,xSize,ySize
+    }
+}}
+
+// coin class
+class coin{
   int x = 0;
   int y = 0;
   boolean collected = false;
@@ -106,7 +98,29 @@ class coin{//makes a coin.
     y = ypos;
   }
 }
+class block{
+	int[] location = {0,0};
+  int[] blockSize = {10,10};
+  wallBlock(int x, int y, int xSize, int ySize){
+    location[0] = x;
+    location[1] = y;
+    
+    blockSize[0] = xSize;
+    blockSize[1] = ySize;
+  }
+  
+  int[] getLocation(){
+    
+    return location;
+  }
+  int[] getSize(){
+    return blockSize;
+  }
+}
 
+boolean coinsA=true;
+boolean platformA=false;
+boolean finalA=false;
 
 //keyPressed and keyReleased track keyboard input
 //build in functions of processing.js
