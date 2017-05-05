@@ -29,7 +29,7 @@ int coinSize = 10;
 void setup()
 {
 
- printMessage("Loaded!<br>"+coins+platforms+goal);
+ printMessage("Loaded!<br><br> Use A and D to move, SPACE to jump!");
  
  console.log(coins.length+" coins:");
  for (int i=0; i< coins.length; i++){
@@ -47,6 +47,8 @@ void setup()
 	 }
 
   m1 = new gameMap(platforms, coins, goal)
+  p1 = new player();
+  p1.location = {1,0};
   size(800,800);
 
   background(10);  
@@ -267,3 +269,8 @@ void keyReleased() {
   if (key=='d') {keys[1]=false;}
   if (key==' ') {keys[2]=false;}
 }
+
+void mouseClicked() {
+	console.log("here: "+mouseX+" "+mouseY);
+	}
+

@@ -19,6 +19,8 @@ insert into Levels values (default, 2, '2017-04-11', 'hane0248', 32, 'BEST LVL',
 insert into Levels values (default, 4, '2016-12-21', 'chda6313', 3567, 'CHALLENGE','Super HARD',0);
 insert into Levels values (default, 3, '2001-06-12', 'hane0248', 23450, 'Hams LVL','GIT GUD',0);
 
+insert into Levels values (9, 1, '2017-05-02', 'chda6313', 123450, 'Demo Level','Demo Level',0);
+
 
 /* Test Values for levels */
 insert into Users values (default, 'Charlie', 'Davies', 'chda6313', 'password1');
@@ -28,9 +30,24 @@ insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (1, ST_Geomfromtext(
 insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (1, ST_Geomfromtext('POINT(350 450)'),100, 20);
 insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (1, ST_Geomfromtext('POINT(150 350)'),40, 20);
 
+insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (9, ST_Geomfromtext('POINT(000 200)'),40, 20);
+insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (9, ST_Geomfromtext('POINT(100 200)'),40, 20);
+insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (9, ST_Geomfromtext('POINT(400 200)'),40, 20);
+insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (9, ST_Geomfromtext('POINT(200 350)'),40, 20);
+insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (9, ST_Geomfromtext('POINT(300 350)'),40, 20);
+insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (9, ST_Geomfromtext('POINT(100 500)'),40, 20);
+insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (9, ST_Geomfromtext('POINT(200 500)'),40, 20);
+insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (9, ST_Geomfromtext('POINT(300 500)'),40, 20);
+insert into Platforms (lvl_id, rect, x_size, y_size) VALUES (9, ST_Geomfromtext('POINT(400 500)'),40, 20);
+
+
 insert into Coins (lvl_id, coin) VALUES (1, ST_Geomfromtext('POINT(250 250)'));
 insert into Coins (lvl_id, coin) VALUES (1, ST_Geomfromtext('POINT(10 350)'));
 insert into Coins (lvl_id, coin) VALUES (1, ST_Geomfromtext('POINT(10 150)'));
 
+insert into Coins (lvl_id, coin) VALUES (9, ST_Geomfromtext('POINT(250 50)'));
+insert into Coins (lvl_id, coin) VALUES (9, ST_Geomfromtext('POINT(450 50)'));
+insert into Coins (lvl_id, coin) VALUES (9, ST_Geomfromtext('POINT(150 300)'));
+
 insert into Goal (lvl_id, goal, x_size, y_size) VALUES (1, ST_Geomfromtext('POINT(450 150)'),50, 150);
-insert into Goal (lvl_id, goal, x_size, y_size) VALUES (1, ST_Geomfromtext('POINT(200 400)'),100, 50);
+insert into Goal (lvl_id, goal, x_size, y_size) VALUES (9, ST_Geomfromtext('POINT(500 500)'),100, 50);
