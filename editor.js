@@ -23,10 +23,10 @@ void setup()
 //this is the main function. Will loop for ever
 void draw()
 {
-  background(color(20,150,50)); //draw the background, commenting out this line will draw on top of the previous frame
+  background(color(10,50,50)); //draw the background, commenting out this line will draw on top of the previous frame
   edit.draw();
   fill(edit.MouseColor);
-  rect(mouseX, mouseY, 100, 100); // draw at mouse location, with width and height of 
+  rect(mouseX, mouseY, 10, 10); // draw at mouse location, with width and height of 
   
 }
 
@@ -49,12 +49,14 @@ class gameMap{
 		}
 	if (keys[1]){
 		//add coin
-		MouseColor = color(255,0,255);
+		MouseColor = color(0,255,0);
+		coins = append(coins, new coin(mouseX, mouseY, 5, 10));
 		
 		}
 	if (keys[2]){
 		//change goal
 		MouseColor = color(255,255,0);
+		//goal=append(goal, new wallBlock(mouseX, mouseY, 100,50);
 		
 		}
 	}
@@ -62,7 +64,7 @@ class gameMap{
   
   void draw(){
     
-    //wall colors
+   //wall colors
     stroke(200);
     fill(100);
     
@@ -79,31 +81,39 @@ class gameMap{
     //coin colors
     stroke(200);
     fill(color(100,100,0));
-    
-    boolean allCollected = true; // this tracks if all coins are collected for the goal
     for (int i=0; i<coins.length; i++){
-      if (!coins[i].collected){ // only draw them if they are not collected
-        ellipse(coins[i].x , coins[i].y, coinSize, 1.5*coinSize); //x,y, xradius, yradius
-        allCollected = false;
-        }
-      }
-    
-    
+      int[] d = coins[i].getLocation();
+      int[] bS = coins[i].getSize();
+      
+      rect(d[0], d[1], bS[0], bS[1]);//x,y,xSize,ySize
+    }
+  
     //goal color
     stroke(200);
-    if (allCollected) {fill(color(0,255,0));}
-    else {fill(color(255,0,0));}
-    //draw the goal
+    fill(color(0,255,0));
+    
     rect(goal.location[0], goal.location[1], goal.blockSize[0], goal.blockSize[1]);
   }
 }
+
+
 class coin{//makes a coin.
-  int x = 0;
-  int y = 0;
-  boolean collected = false;
-  coin(int xpos, int ypos){
-    x = xpos;
-    y = ypos;
+  int[] location = {0,0};
+  int[] coinSize = {10,10};
+  coin(int x, int y, int xSize, int ySize){
+    location[0]=x;
+    location[1]=y;
+    
+    coinSize[0]=xSize;
+    coinSize[1]=ySize;
+  }
+  int[] getLocation(){
+    
+    return location;
+  }
+  int[] getSize(){
+	  
+    return coinSize;
   }
 }
 
@@ -124,6 +134,7 @@ class wallBlock{
     return location;
   }
   int[] getSize(){
+	  
     return blockSize;
   }
 }
