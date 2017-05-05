@@ -35,7 +35,7 @@ class gameMap{
 	//blank level
   wallBlock[] wallBlocks = {};
   coin[] coins = {};
-  wallBlock goal = new wallBlock(700, 400,100,50);//end goal location
+  wallBlock[] goal = {};
   color MouseColor = color(100);
   gameMap(){
 	  
@@ -56,7 +56,7 @@ class gameMap{
 	if (keys[2]){
 		//change goal
 		MouseColor = color(255,255,0);
-		//goal=append(goal, new wallBlock(mouseX, mouseY, 100,50);
+		goal = append(goal, new wallBlock(mouseX, mouseY, 50,40));
 		
 		}
 	}
@@ -91,8 +91,12 @@ class gameMap{
     //goal color
     stroke(200);
     fill(color(0,255,0));
-    
-    rect(goal.location[0], goal.location[1], goal.blockSize[0], goal.blockSize[1]);
+    for (int i=0; i<goal.length; i++){
+      int[] d = goal[i].getLocation();
+      int[] bS = goal[i].getSize();
+ 
+      rect(d[0], d[1], bS[0], bS[1]);//x,y,xSize,ySize
+    }
   }
 }
 
