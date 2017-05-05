@@ -5,7 +5,8 @@
 src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.mi
 n.js">
 </script>
-
+<?php
+?>
 </head>
 <body>
 <h1><strong>User Login</strong></h1>

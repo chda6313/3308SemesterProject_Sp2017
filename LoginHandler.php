@@ -17,7 +17,10 @@ $password = $_REQUEST['log_password'];
 			 echo "<h4>Your username or password is incorrect</h4>";
 		 }
 		 else{
-			echo "You're logged in!";
+			session_start();
+			$_SESSIONS["user"]=$username;
+			header("Location: http://127.0.0.1/Game_Selection.php");
+			exit;
 		 }
 	}
 include 'User_Login.php';
