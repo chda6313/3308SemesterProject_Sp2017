@@ -20,7 +20,7 @@ caption, tbody, tfoot, thead, tr, th, td
     background: transparent;
 }
 
-body,input {
+body,submit {
     background-color: lightblue;
     background-image: url("sky.gif");
     background-repeat: repeat-x;
@@ -47,6 +47,8 @@ p {
 table, th, td {
     border: 1px solid black;
     margin: 1em auto;
+    font-family: ariel;
+    font-Size: 20px;
 }
 
 tr {

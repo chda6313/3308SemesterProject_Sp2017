@@ -26,8 +26,11 @@ void draw()
   background(color(10,50,50)); //draw the background, commenting out this line will draw on top of the previous frame
   edit.draw();
   fill(edit.MouseColor);
-  rect(mouseX, mouseY, 10, 10); // draw at mouse location, with width and height of 
+  rect(mouseX-5, mouseY-5, 10, 10); // draw at mouse location, with width and height of 
   
+  stroke(255,100);
+  
+  text("SAVE LEVEL", 720,790)
 }
 
 
@@ -56,7 +59,7 @@ class gameMap{
 	if (keys[2]){
 		//change goal
 		MouseColor = color(255,255,0);
-		//goal=append(goal, new wallBlock(mouseX, mouseY, 100,50);
+		goal= new wallBlock(mouseX, mouseY, 100,50);
 		
 		}
 	}
@@ -167,7 +170,37 @@ void keyReleased() {
 }
 
 void mouseClicked() {
-	console.log("here1");
+	if (mouseX > 720 && mouseY > 790){
+		String h = "http://localhost/Project/SQLInsertHandler.php";
+		vars = "?";
+		a = edit.wallBlocks;
+		b = edit.coins;
+		c = edit.goal;
+		
+		vars += "walls";
+		for (int i=0; i<a.length; i++){
+			if(i==0){
+			vars+= "=";
+			}else{
+				vars += "+";
+			}
+			vars += a[i].location[0]+"+"+a[i].location[1];
+			}
+		
+		vars += "&coins";
+		for (int i=0; i<b.length; i++){
+			if(i==0){
+			vars+= "=";
+			}else{
+				vars += "+";
+			}
+			vars += b[i].location[0]+"+"+b[i].location[1];
+			}
+			
+		vars += "&goal=";
+		vars += c.location[0]+"+"+c.location[1];
+		link(h+vars);
+		}
+	
 	edit.addThing();
-	console.log("here");
 	}
