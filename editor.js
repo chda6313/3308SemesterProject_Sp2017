@@ -1,72 +1,72 @@
-//Charles Davies
+//3 arrays will be created 
+//coins=coin
+//platforms=block
+//goal=final block 
+//dynamic arrays utilized 
 
-//note, pixels are counted from the top left of the screen.
-//this causes some funcy math, most notibly, moving down in the y is actually adding to pixel number
-//ex:
-
-//0,0  1,0  2,0  3,0 ----> x-axis
-//0,1  1,1  2,1  3,1
-//0,2  1,2  2,2  3,2
-//  |
-//  |
-//  V
-//  y-axis
+//'name'[20] + 'comments'[140] field -- 
 
 
+boolean[] keys = {false, false, false};//b,c,g
 
-boolean[] keys = {false, false, false};//a,d,spacebar
+gameMap edit=new gameMap();
 
-gameMap edit =new gameMap();
-
-void settings() 
-{
-  
-}
 //also runs once at the very start of the program
 void setup()
 {
   background(color(20,40,50)); //color(r,g,b)
   size(800,800);
   frameRate(60);
-  
 }
-
-
 
 
 //this is the main function. Will loop for ever
 void draw()
 {
-  background(color(20,50,50)); //draw the background, commenting out this line will draw on top of the previous frame
+  background(color(20,150,50)); //draw the background, commenting out this line will draw on top of the previous frame
+  edit.draw();
+  fill(edit.MouseColor);
+  rect(mouseX, mouseY, 100, 100); // draw at mouse location, with width and height of 
   
-  
-  //this draws a square at mouse location, with a color based on if the mouse is clicked.
-  if (mousePressed == true) {
-	  
-	  
-   stroke(255); // outline is white
-    fill(0); 
-    coin coin1=new coin(mouseX,mouseY); //fill color is black
-  } else {
-    stroke(0); //outline black
-    fill(255);//fill white
-  }
-  rect(mouseX, mouseY, 50, 50); // draw at mouse location, with width and height of 50
 }
 
-/*class gameMap{
-if (mousePressed == true) 
-{coin coin1 = new coin(mouseX, mouseY);}
-  
+
+class gameMap{
+	//blank level
+  wallBlock[] wallBlocks = {};
+  coin[] coins = {};
+  wallBlock goal = new wallBlock(700, 400,100,50);//end goal location
+  color MouseColor = color(100);
   gameMap(){
-    
+	  
   }
+  
+  void addThing(){
+	  if (keys[0]){
+		//add block
+		MouseColor = color(0,255,255);
+		wallBlocks = append(wallBlocks, new wallBlock(mouseX, mouseY, 100,40));
+		}
+	if (keys[1]){
+		//add coin
+		MouseColor = color(255,0,255);
+		
+		}
+	if (keys[2]){
+		//change goal
+		MouseColor = color(255,255,0);
+		
+		}
+	}
+	  
   
   void draw(){
     
     //wall colors
     stroke(200);
     fill(100);
+    
+    
     for (int i=0; i<wallBlocks.length; i++){
       int[] d = wallBlocks[i].getLocation();
       int[] bS = wallBlocks[i].getSize();
@@ -96,7 +96,7 @@ if (mousePressed == true)
     //draw the goal
     rect(goal.location[0], goal.location[1], goal.blockSize[0], goal.blockSize[1]);
   }
-}*/
+}
 class coin{//makes a coin.
   int x = 0;
   int y = 0;
@@ -108,15 +108,55 @@ class coin{//makes a coin.
 }
 
 
+class wallBlock{
+  int[] location = {0,0};
+  int[] blockSize = {10,10};
+  wallBlock(int x, int y, int xSize, int ySize){
+    location[0] = x;
+    location[1] = y;
+    
+    blockSize[0] = xSize;
+    blockSize[1] = ySize;
+  }
+  
+  int[] getLocation(){
+    
+    return location;
+  }
+  int[] getSize(){
+    return blockSize;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //keyPressed and keyReleased track keyboard input
 //build in functions of processing.js
 void keyPressed() {
-  if (key=='a') {keys[0]=true;}
-  if (key=='d') {keys[1]=true;}
-  if (key==' ') {keys[2] = true;}
+  if (key=='b') {keys[0]=true;}
+  if (key=='c') {keys[1]=true;}
+  if (key=='g') {keys[2]=true;}
 }
 void keyReleased() {
-  if (key=='a') {keys[0]=false;}
-  if (key=='d') {keys[1]=false;}
-  if (key==' ') {keys[2]=false;}
+  if (key=='b') {keys[0]=false;}
+  if (key=='c') {keys[1]=false;}
+  if (key=='g') {keys[2]=false;}
 }
+
+void mouseClicked() {
+	console.log("here1");
+	edit.addThing();
+	console.log("here");
+	}
