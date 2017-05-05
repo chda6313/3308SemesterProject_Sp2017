@@ -6,6 +6,8 @@
 		var coins = <?php echo json_encode($coins_array);?>;
 		var goal = <?php echo json_encode($goal_array);?>
 	</script>
+	<link rel="stylesheet" href = "style.css" type = "text/css" charset = "UTF-8">
+
 </head>
 <?php
 error_log("PHP file entered",0);
@@ -62,7 +64,7 @@ error_log('GOAL DATA: '.$goal_array[0][0],0);
 
 
 
-<div id="msg">HelloWorld</div>
+<div id="msg" style="font-family: ariel;">HelloWorld</div>
 <canvas id="mysketch" data-processing-sources="basic.js"></canvas>
 
 <script type="application/javascript">

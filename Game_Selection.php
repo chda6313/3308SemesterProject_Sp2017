@@ -1,6 +1,8 @@
 <html>
 <head>
 <title> Level Selection </title>
+<link rel="stylesheet" href = "style.css" type = "text/css" charset = "UTF-8">
+
 <script
 src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.mi
 n.js">
