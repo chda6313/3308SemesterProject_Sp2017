@@ -1,22 +1,25 @@
 <?php
 $connection = @mysqli_connect ('127.0.0.1','root', 'Nellie95','Maker_Game');
-$Id = mysql_insert_id()+1;
-$Name = $_REQUEST['User_Name'];
-$Publish = date("d.m.Y");
-$Rating = $_REQUEST['Rating'];
-$Comment = $_REQUEST['Comment'];
-$High_Score = NULL;
 
+$name = $_REQUEST['name'];
+$Username = $_REQUEST['User_Name'];
+$date = date("m-d-y");
+$Rating = 0;
+$Comment = $_REQUEST['Comment'];
+$High_Score = 0;
+$review_num = 0;
+
+$
 $Rectangle = NULL;
+
 $Coin = NULL;
 
-$insertMain = "INSERT INTO store (id, name, qty, price) VALUES ('$Id','$Name','$Quantity','$Price')";
-$insertRect = "INSERT INTO Platforms(id, rect) VALUES ('$Id','$Rectangle')";
+$insertMain = "INSERT INTO Levels(rating, publishment,creator,high_score,name,comments,review_num) VALUES ('$Rating','$publishment','$Username','$high_score','$name','$comments','$review_num')";
+$insertRect = "INSERT INTO Platforms(lvl_id, rect) VALUES ('$lvl_id','$Rectangle')";
 $insertCoin = "INSERT INTO Coins(id, coin) VALUES ('$Id','$Coin')";
 
 mysqli_query($connection, $insertMain);
 mysqli_query($connection, $insertRect);
 mysqli_query($connection, $insertCoin);
 
-}
 ?>
