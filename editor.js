@@ -59,7 +59,7 @@ class gameMap{
 	if (keys[2]){
 		//change goal
 		MouseColor = color(255,255,0);
-		goal= new wallBlock(mouseX, mouseY, 100,50);
+		goal= append(goal, new wallBlock(mouseX, mouseY, 100,50));
 
 		
 		}
